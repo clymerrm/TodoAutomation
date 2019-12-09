@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="341e5abb-2aee-40fe-b2c6-3d06c206a7c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/selenium/python/helpers/elementInteractions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/selenium/python/helpers/findElements.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/selenium/python/helpers/nonElementRelated.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1_Selenium/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1_Selenium/python/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1_Selenium/python/exercise1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1_Selenium/python/exercise1/solution/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1_Selenium/python/exercise2/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1_Selenium/python/exercise2/exercise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1_Selenium/python/exercise2/pages/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1_Selenium/python/exercise2/pages/base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/javascript/basicTest.js" beforeDir="false" afterPath="$PROJECT_DIR$/part1_Selenium/javascript/basicTest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/python/1basicTest.py" beforeDir="false" afterPath="$PROJECT_DIR$/part1_Selenium/python/basicTest/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/python/2addTask.py" beforeDir="false" afterPath="$PROJECT_DIR$/part1_Selenium/python/addTaskExample/addTask.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/python/3exerciseOne.py" beforeDir="false" afterPath="$PROJECT_DIR$/part1_Selenium/python/exercise1/exercise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/python/Solutions/3exerciseOneSolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/part1_Selenium/python/exercise1/solution/solution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/python/helpers/elementInteractions.py" beforeDir="false" afterPath="$PROJECT_DIR$/part1_Selenium/python/.ActionExamples/elementInteractions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/python/helpers/findElements.py" beforeDir="false" afterPath="$PROJECT_DIR$/part1_Selenium/python/.ActionExamples/findElements.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/selenium/python/helpers/nonElementRelated.py" beforeDir="false" afterPath="$PROJECT_DIR$/part1_Selenium/python/.ActionExamples/nonElementRelated.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,10 +30,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1TlhlW6K8Ztm5fcXGhrnkVsOLvc" />
@@ -32,7 +50,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/selenium/python/helpers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/selenium/python/4pageObjects" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
@@ -41,11 +59,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/selenium/python/Solutions" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/selenium/python/4pageObjects" />
       <recent name="$PROJECT_DIR$/selenium/python/helpers" />
+      <recent name="$PROJECT_DIR$/selenium/python" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/part1_Selenium/python/exercise1" />
+      <recent name="$PROJECT_DIR$/selenium/python/exercise2" />
+      <recent name="$PROJECT_DIR$/selenium/python/exercise3" />
+      <recent name="$PROJECT_DIR$/selenium/python/exercise1" />
       <recent name="$PROJECT_DIR$/selenium/python" />
     </key>
   </component>
@@ -75,8 +98,17 @@
       <workItem from="1574041490549" duration="131000" />
       <workItem from="1574041662385" duration="35000" />
       <workItem from="1574041729359" duration="323000" />
-      <workItem from="1574042131977" duration="6155000" />
+      <workItem from="1574042131977" duration="9592000" />
+      <workItem from="1575772616257" duration="904000" />
     </task>
+    <task id="LOCAL-00001" summary="Adding some helper examples">
+      <created>1574130210709</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574130210709</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,16 +119,26 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding some helper examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding some helper examples" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TodoAutomation$3exerciseOneSolution.coverage" NAME="3exerciseOneSolution Coverage Results" MODIFIED="1574047138645" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium/python/Solutions" />
-    <SUITE FILE_PATH="coverage/TodoAutomation$2addTask.coverage" NAME="2addTask Coverage Results" MODIFIED="1574044414915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium/python" />
+    <SUITE FILE_PATH="coverage/TodoAutomation$solution.coverage" NAME="solution Coverage Results" MODIFIED="1575854781349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/part1_Selenium/python/exercise1/solution" />
+    <SUITE FILE_PATH="coverage/TodoAutomation$2addTask.coverage" NAME="2addTask Coverage Results" MODIFIED="1575771956092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium/python/exercise2" />
     <SUITE FILE_PATH="coverage/TodoAutomation$basicTest.coverage" NAME="basicTest Coverage Results" MODIFIED="1574043365345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium/python" />
-    <SUITE FILE_PATH="coverage/TodoAutomation$3exerciseOne.coverage" NAME="3exerciseOne Coverage Results" MODIFIED="1574046290360" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium/python" />
+    <SUITE FILE_PATH="coverage/TodoAutomation$1basicTest.coverage" NAME="1basicTest Coverage Results" MODIFIED="1575771912532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium/python/exercise1" />
+    <SUITE FILE_PATH="coverage/TodoAutomation$exercise.coverage" NAME="exercise Coverage Results" MODIFIED="1575855077658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/part1_Selenium/python/exercise2" />
+    <SUITE FILE_PATH="coverage/TodoAutomation$3exerciseOne.coverage" NAME="3exerciseOne Coverage Results" MODIFIED="1575772522560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium/python/exercise2/pageObjects" />
+    <SUITE FILE_PATH="coverage/TodoAutomation$4pageObjectTest.coverage" NAME="4pageObjectTest Coverage Results" MODIFIED="1574130734438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/selenium/python/4pageObjects" />
   </component>
 </project>
