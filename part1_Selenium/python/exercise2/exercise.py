@@ -1,35 +1,24 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 import datetime
-from part1_Selenium.python.exercise2.pages.base import BasePage
+from part1_Selenium.python.exercise2.pages import *
+
+driver = webdriver.Chrome(ChromeDriverManager().install())
+
+page = CreateTasks(driver)
 
 
-base = BasePage()
+page.get_page('http://www.automation-todos.com/latest')
+assert "Codemash" in page.return_page_title()
 
+task_name = 'Testing adding new task'
+tomorrow = datetime.datetime.today() + datetime.timedelta(days=1)
+tomorrow = tomorrow.strftime("%m/%d/%Y")
 
-base.get_page('www.automation-todos.com/latest')
-assert "Codemash" in base.return_page_title()
+page.create_new_task(task_name, tomorrow)
 
-taskName = 'Testing adding new task'
+# TODO: Ensure task appears in task list
 
-base.driver.find_element(By.CSS_SELECTOR, 'input[data-test-key=TaskNameInput]').clear()
-base.driver.find_element(By.CSS_SELECTOR, 'input[data-test-key=TaskNameInput]').send_keys(taskName)
-
-# tomorrow = datetime.datetime.today() + datetime.timedelta(days=1)
-# tomorrow = tomorrow.strftime("%m/%d/%Y")
-# dateLength = len(driver.find_element(By.CSS_SELECTOR, 'div[class*="datepicker__input-container"]>input').get_attribute('value'))
-# driver.find_element(By.CSS_SELECTOR, 'div[class*="datepicker__input-container"]>input').send_keys(dateLength * Keys.BACKSPACE)
-# TODO: Enter value of tomorrow for task due date (Helper bits added above as input is hard to clear)
-
-base.driver.find_element_by_css_selector('input[data-test-key=CreateTaskButton]').click()
-
-tasks = base.driver.find_elements(By.CSS_SELECTOR, '[data-test-key=TaskTitle]')
-tasks = [task.text for task in tasks]
-assert taskName in tasks
-matches = sum(match == taskName for match in tasks)
-assert matches == 1
 
 # TODO: Mark test as completed
 
@@ -37,4 +26,4 @@ assert matches == 1
 # TODO: Delete the task you just created
 
 
-base.driver.quit()
+page.quit_driver()
