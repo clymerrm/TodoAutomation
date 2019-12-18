@@ -9,10 +9,10 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get('http://automation-todos.com/latest')
 assert "Codemash" in driver.title
 
-taskName = 'Testing adding new task'
+task_name = 'Testing adding new task'
 
 driver.find_element(By.CSS_SELECTOR, 'input[data-test-key=TaskNameInput]').clear()
-driver.find_element(By.CSS_SELECTOR, 'input[data-test-key=TaskNameInput]').send_keys(taskName)
+driver.find_element(By.CSS_SELECTOR, 'input[data-test-key=TaskNameInput]').send_keys(task_name)
 
 # TODO: Enter value of tomorrow for task due date
 tomorrow = datetime.datetime.today() + datetime.timedelta(days=1)
@@ -25,25 +25,25 @@ driver.find_element_by_css_selector('input[data-test-key=CreateTaskButton]').cli
 
 tasks = driver.find_elements(By.CSS_SELECTOR, '[data-test-key=TaskTitle]')
 tasks = [task.text for task in tasks]
-assert taskName in tasks
-matches = sum(match == taskName for match in tasks)
+assert task_name in tasks
+matches = sum(match == task_name for match in tasks)
 assert matches == 1
 
 # TODO: Mark test as completed
-desiredTask = taskName.lower().replace(' ', '')
+desiredTask = task_name.lower().replace(' ', '')
 driver.find_element(By.CSS_SELECTOR, 'div[data-test-key=' + desiredTask + 'item]>p>input[data-test-key=CompletedCheckbox]').click()
 completedTasks = driver.find_elements(By.CSS_SELECTOR, '[data-test-key*=item][style*="line-through"]>p>span[data-test-key=TaskTitle]')
 completedTasks = [task.text for task in completedTasks]
-assert taskName in completedTasks
-completedMatches = sum(match == taskName for match in completedTasks)
+assert task_name in completedTasks
+completedMatches = sum(match == task_name for match in completedTasks)
 assert completedMatches == 1
 
 # TODO: Delete the task you just created
 driver.find_element(By.CSS_SELECTOR, 'div[data-test-key=' + desiredTask + 'item]>button').click()
 tasks = driver.find_elements(By.CSS_SELECTOR, '[data-test-key=TaskTitle]')
 tasks = [task.text for task in tasks]
-assert taskName not in tasks
-matches = sum(match == taskName for match in tasks)
+assert task_name not in tasks
+matches = sum(match == task_name for match in tasks)
 assert matches == 0
 
 driver.quit()
