@@ -1,0 +1,25 @@
+{
+  "name": "testing.testcafe",
+  "version": "1.0.0",
+  "description": "Codemash 2020 Things To Do",
+  "main": "index.js",
+  "scripts": {
+    "addTaskExample": "testcafe chrome ./addTaskExample -e",
+    "basicTest": "testcafe chrome ./basicTest -e",
+    "exercise1": "testcafe chrome ./exercise1/exercise.spec.js -e",
+    "exercise1:solution": "testcafe chrome ./exercise1/solution -e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:clymerrm/TodoAutomation.git"
+  },
+  "author": "Aaron Glass",
+  "license": "ISC",
+  "devDependencies": {
+    "testcafe": "*"
+  },
+  "dependencies": {
+    "core-js": "^3.4.2",
+    "testcafe": "^1.2.0"
+  }
+}
