@@ -48,10 +48,4 @@ export default class ToDo {
             .typeText(this.date, date);
     }
 
-    // async findRow(interestName) {
-    //     await t
-    //         .click(Selector(this.taskTitle).withText(interestName));
-    // }
-
-
 }
