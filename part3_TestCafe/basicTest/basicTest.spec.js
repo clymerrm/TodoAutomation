@@ -7,6 +7,6 @@ const title = 'Codemash 2020 Todo List'
 fixture`Basic Test`
     .page(`http://www.automation-todos.com/latest`)
 
-test.only("Browser Title", async t => {
+test("Browser Title", async t => {
     await common.verifyBrowserTitle(title);
 });
