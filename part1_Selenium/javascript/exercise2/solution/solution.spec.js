@@ -1,79 +1,38 @@
 const {Builder, webdriver, until, By, Key} = require('selenium-webdriver');
 const {expect} = require('chai');
+const BasePage = require('../pages/base.po');
+const HeaderPage = require('../pages/header.po');
+const TodoListPage = require('../pages/todoList.po');
+const CreateTasks = require('../pages/createTasks.po');
 const moment = require('moment');
 
 async function main() {
-    let driver = new Builder()
+    const driver = new Builder()
         .forBrowser('chrome')
         .usingServer('http://localhost:4444/wd/hub')
         .build();
+    let base = new BasePage(webdriver, driver);
+    let page = new CreateTasks(webdriver, driver);
 
-    await driver.get('http://www.automation-todos.com/latest');
-    await driver.getTitle().then(function(title) {
+    await base.getPage('http://www.automation-todos.com/latest');
+    await base.returnPageTitle().then(function(title) {
         expect(title).to.contain('Codemash')
     });
+    // await header.headerVisible();
 
     const taskName = 'Testing adding new task';
-    const taskInput = driver.findElement(By.css('input[data-test-key=TaskNameInput]'));
-    await taskInput.clear();
-    await taskInput.sendKeys(taskName);
+    const tomorrow = moment().add(1, 'days').format("MM/DD/YYYY");
+    await page.createNewTask(taskName, tomorrow);
 
-    // UNCOMMENT ME TO CLEAR THE DATE FIELD
-    let i = 0;
-    const tomorrow = moment().add(1, 'days').format("MM/DD/YYYY")
-    const dateField = await driver.findElement(By.css('div[class*="datepicker__input-container"]>input'));
-    const dateFieldLength = await dateField.getAttribute('value').length;
-    while (i < dateFieldLength) {
-        await driver.findElement(By.css('div[class*="datepicker__input-container"]>input')).sendKeys(Key.BACK_SPACE);
-        i++;
-    }
-    // TODO: Enter value of tomorrow for task due date (Helper bits added above as input is hard to clear)
-    await dateField.sendKeys(tomorrow);
-
-
-    await driver.findElement(By.css('input[data-test-key=CreateTaskButton]')).click();
-
-    const matchingTasks = [];
-    await driver.findElements(By.css('[data-test-key=TaskTitle]')).then(function(elements){
-        elements.forEach(function(element){
-            element.getText().then(function(text){
-                if (text === taskName) {
-                    matchingTasks.push(text);
-                }
-            });
-        })
-    });
-    await expect(matchingTasks.length).to.equal(1);
+    // TODO: Ensure task appears in task list
+    // await tasks.returnSpecificTaskByName(taskName);
 
     // TODO: Mark test as completed
-    const desiredTask = taskName.toLowerCase().replace(/\s/g, '');
-    await driver.findElement(By.css('div[data-test-key=' + desiredTask + 'item]>p>input[data-test-key=CompletedCheckbox]')).click();
-    const completedMatches = [];
-    await driver.findElements(By.css('[data-test-key*=item][style*="line-through"]>p>span[data-test-key=TaskTitle]')).then(function(elements){
-        elements.forEach(function(element){
-            element.getText().then(function(text){
-                if (text === taskName) {
-                    completedMatches.push(text);
-                }
-            });
-        })
-    });
-    await expect(completedMatches.length).to.equal(1);
+    // await tasks.markTaskCompleted(taskName);
 
     // TODO: Delete the task you just created
-    await driver.findElement(By.css('div[data-test-key=' + desiredTask + 'item]>button')).click();
-    const deletedTasks = [];
-    await driver.findElements(By.css('[data-test-key=TaskTitle]')).then(function(elements){
-        elements.forEach(function(element){
-            element.getText().then(function(text){
-                if (text === taskName) {
-                    deletedTasks.push(text);
-                }
-            });
-        })
-    });
-    await expect(deletedTasks.length).to.equal(0);
+    // await tasks.deleteTask(taskName);
 
-    await driver.quit();
+    await base.quitDriver();
 }
 main();
