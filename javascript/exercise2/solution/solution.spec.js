@@ -13,25 +13,27 @@ async function main() {
         .build();
     let base = new BasePage(webdriver, driver);
     let page = new CreateTasks(webdriver, driver);
+    let header = new HeaderPage(webdriver, driver);
+    let tasks = new TodoListPage(webdriver, driver);
 
     await base.getPage('http://www.automation-todos.com/latest');
     await base.returnPageTitle().then(function(title) {
         expect(title).to.contain('Codemash')
     });
-    // await header.headerVisible();
+    await header.headerVisible();
 
     const taskName = 'Testing adding new task';
     const tomorrow = moment().add(1, 'days').format("MM/DD/YYYY");
     await page.createNewTask(taskName, tomorrow);
 
     // TODO: Ensure task appears in task list
-    // await tasks.returnSpecificTaskByName(taskName);
+    await tasks.returnSpecificTaskByName(taskName);
 
     // TODO: Mark test as completed
-    // await tasks.markTaskCompleted(taskName);
+    await tasks.markTaskCompleted(taskName);
 
     // TODO: Delete the task you just created
-    // await tasks.deleteTask(taskName);
+    await tasks.deleteTask(taskName);
 
     await base.quitDriver();
 }

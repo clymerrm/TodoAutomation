@@ -1,7 +1,3 @@
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium import webdriver
-
-
 class BasePage():
 
     def __init__(self, driver):
@@ -17,6 +13,10 @@ class BasePage():
         desired_input = self.driver.find_element(*desired_element)
         desired_input.clear()
         desired_input.send_keys(desired_text)
+
+    def click_element(self, desired_element):
+        desired_element = self.driver.find_element(*desired_element)
+        desired_element.click()
 
     def quit_driver(self):
         self.driver.quit()

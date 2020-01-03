@@ -1,29 +1,63 @@
-function BasePage(driver) {
-    this.driver = driver;
-    this.title = 'Codemash 2020 Task List';
+class BasePage {
+    constructor(
+        webdriver,
+        driver
+    ) {
+        this.webdriver = webdriver;
+        this.driver = driver;
+        this.title = 'Codemash 2020 Task List'
+    }
+
+    async getPage(url) {
+        await this.driver.get(url);
+    }
+
+    returnPageTitle() {
+        return this.driver.getTitle();
+    }
+
+    async enterText(desiredElement, desiredText) {
+        await desiredElement.clear();
+        await desiredElement.sendKeys(desiredText);
+    }
+
+    async clickElement(desiredElement) {
+        await desiredElement.click()
+    }
+
+    async quitDriver() {
+        await driver.quit();
+    }
 }
 
-BasePage.prototype.getPage = async function(url) {
-    await this.driver.get(url);
-};
-
-BasePage.prototype.returnPageTitle = function() {
-    return this.driver.getTitle();
-};
-
-BasePage.prototype.enterText = async function(desiredElement, desiredText) {
-    await desiredElement.clear();
-    await desiredElement.sendKeys(desiredText);
-};
+module.exports = BasePage;
 
 //
-//     quitDriver = async function () {
-//         await driver.quit();
+// et BasePage = function(driver) {
+//     this.driver = driver;
+//     this.title = 'Codemash 2020 Task List';
+//
+//
+//     this.getPage = async function (url) {
+//         await this.driver.get(url);
 //     };
 //
-//     clickElement = async function (desiredElement) {
+//     this.returnPageTitle = function () {
+//         return this.driver.getTitle();
+//     };
+//
+//     this.enterText = async function (desiredElement, desiredText) {
+//         await desiredElement.clear();
+//         await desiredElement.sendKeys(desiredText);
+//     };
+//
+//     this.clickElement = async function (desiredElement) {
 //         await desiredElement.click()
-//     }
+//     };
+//
+//     this.quitDriver = async function () {
+//         await driver.quit();
+//     };
 // };
-
-module.exports = BasePage;
+//
+// module.exports = BasePage;

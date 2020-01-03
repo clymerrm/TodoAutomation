@@ -3,6 +3,7 @@ const {expect} = require('chai');
 const moment = require('moment');
 const BasePage = require('./pages/base.po');
 const HeaderPage = require('./pages/header.po');
+const TodoListPage = require('./pages/todoList.po');
 
 async function main() {
     let driver = new Builder()
@@ -11,6 +12,7 @@ async function main() {
         .build();
     let base = new BasePage(driver);
     let header = new HeaderPage(base);
+    let list = new TodoListPage(base);
 
     await base.getPage('http://www.automation-todos.com/latest');
     await base.returnPageTitle().then(function(title) {
@@ -22,36 +24,14 @@ async function main() {
     const taskInput = driver.findElement(By.css('input[data-test-key=TaskNameInput]'));
     await base.enterText(taskInput, taskName);
 
-    // UNCOMMENT ME TO CLEAR THE DATE FIELD
-    let i = 0;
-    const tomorrow = moment().add(1, 'days').format("MM/DD/YYYY")
-    const dateField = await driver.findElement(By.css('div[class*="datepicker__input-container"]>input'));
-    const dateFieldLength = await dateField.getAttribute('value').length;
-    while (i < dateFieldLength) {
-        await driver.findElement(By.css('div[class*="datepicker__input-container"]>input')).sendKeys(Key.BACK_SPACE);
-        i++;
-    }
-    // TODO: Enter value of tomorrow for task due date (Helper bits added above as input is hard to clear)
+    // TODO: Ensure task appears in task list
 
-    await driver.findElement(By.css('input[data-test-key=CreateTaskButton]')).click();
-
-    const matchingTasks = [];
-    await driver.findElements(By.css('[data-test-key=TaskTitle]')).then(function(elements){
-        elements.forEach(function(element){
-            element.getText().then(function(text){
-                if (text === taskName) {
-                    matchingTasks.push(text);
-                }
-            });
-        })
-    });
-    expect(matchingTasks.length).to.equal(1);
 
     // TODO: Mark test as completed
 
 
     // TODO: Delete the task you just created
 
-    await driver.quit();
+    await base.quitDriver();
 }
 main();
