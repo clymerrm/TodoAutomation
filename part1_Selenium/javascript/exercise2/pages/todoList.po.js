@@ -22,9 +22,12 @@ TodoList.prototype.getAllTasks = async function() {
         const dueDate = await dueDates[i].text;
         const status = await attributes[i].getAttribute('data-test-status');
         const id = await attributes[i].getAttribute('id');
-        await allTasks[taskName]['dueDate'] = dueDate;
-        await allTasks[taskName]['status'] = status;
-        await allTasks[taskName]['id'] = id;
+        allTasks = { taskName: {
+                dueDate: dueDate,
+                status: status,
+                id: id
+            }
+        };
     }
     return allTasks
 };
@@ -35,7 +38,8 @@ TodoList.prototype.getCompletedTasks = async function () {
     const dueDates = await this.driver.findElements(this.completedTasksDuedates);
     for (let i = 0; i < tasks.length; i++) {
         const taskName = await tasks[i].text.replace(' ', '').toLowerCase();
-        await completedTasks[taskName] = await dueDates[i].text;
+        const dueDate = await dueDates[i].text;
+        completedTasks[taskName] = dueDate;
     }
     return completedTasks;
 };
@@ -46,7 +50,8 @@ TodoList.prototype.getActiveTasks = async function () {
     const dueDates = await this.driver.findElements(this.activeTasksDuedates);
     for (let i = 0; i < tasks.length; i++) {
         const taskName = await tasks[i].text.replace(' ', '').toLowerCase();
-        await activeTasks[taskName] = await dueDates[i].text;
+        const dueDate = await dueDates[i].text;
+        activeTasks[taskName] = dueDate;
     }
     return activeTasks;
 };

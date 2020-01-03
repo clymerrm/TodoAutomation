@@ -1,27 +1,28 @@
-function BasePage(driver) {
+let BasePage = function(driver) {
     this.driver = driver;
     this.title = 'Codemash 2020 Task List';
-}
 
-BasePage.prototype.getPage = async function(url) {
-    await this.driver.get(url);
-};
 
-BasePage.prototype.returnPageTitle = function() {
-    return this.driver.getTitle();
-};
+    this.getPage = async function (url) {
+        await this.driver.get(url);
+    };
 
-BasePage.prototype.enterText = async function(desiredElement, desiredText) {
-    await desiredElement.clear();
-    await desiredElement.sendKeys(desiredText);
-};
+    this.returnPageTitle = function () {
+        return this.driver.getTitle();
+    };
 
-BasePage.prototype.clickElement = async function (desiredElement) {
-    await desiredElement.click()
-};
+    this.enterText = async function (desiredElement, desiredText) {
+        await desiredElement.clear();
+        await desiredElement.sendKeys(desiredText);
+    };
 
-BasePage.prototype.quitDriver = async function () {
-    await driver.quit();
+    this.clickElement = async function (desiredElement) {
+        await desiredElement.click()
+    };
+
+    this.quitDriver = async function () {
+        await driver.quit();
+    };
 };
 
 module.exports = BasePage;
