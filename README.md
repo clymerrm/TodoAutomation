@@ -21,3 +21,13 @@
 CSS Examples - https://saucelabs.com/resources/articles/selenium-tips-css-selectors
 
 XPATH Examples - https://www.lambdatest.com/blog/complete-guide-for-using-xpath-in-selenium-with-examples/
+
+# Running Javascript Tests from Command Line
+* Non-Mocha framework ```node basicTest.spec.js```
+* Mocha ```mocha basicTest.spec.js --timeout 10000```
+
+# Node Webdriver-Manager
+Need a specific version of chrome driver:
+
+```webdriver-manager update --versions.chrome=78.0.3904.105 --gecko false```
+```webdriver-manager start --versions.chrome=78.0.3904.105```
