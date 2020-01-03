@@ -1,9 +1,9 @@
 const {Builder, webdriver, until, By, Key} = require('selenium-webdriver');
 const {expect} = require('chai');
-const moment = require('moment');
 const BasePage = require('./pages/base.po');
 const HeaderPage = require('./pages/header.po');
 const TodoListPage = require('./pages/todoList.po');
+const CreateTasks = require('./pages/createTasks.po');
 
 async function main() {
     let driver = new Builder()
@@ -12,7 +12,8 @@ async function main() {
         .build();
     let base = new BasePage(driver);
     let header = new HeaderPage(base);
-    let list = new TodoListPage(base);
+    let tasks = new TodoListPage(base);
+    let page = new CreateTasks(base);
 
     await base.getPage('http://www.automation-todos.com/latest');
     await base.returnPageTitle().then(function(title) {
@@ -21,16 +22,17 @@ async function main() {
     await header.headerVisible();
 
     const taskName = 'Testing adding new task';
-    const taskInput = driver.findElement(By.css('input[data-test-key=TaskNameInput]'));
-    await base.enterText(taskInput, taskName);
+    const tomorrow = moment().add(1, 'days').format("MM/DD/YYYY");
+    await page.createNewTask(taskName, tomorrow);
 
     // TODO: Ensure task appears in task list
-
+    await tasks.returnSpecificTaskByName(taskName);
 
     // TODO: Mark test as completed
-
+    await tasks.markTaskCompleted(taskName);
 
     // TODO: Delete the task you just created
+    await tasks.deleteTask(taskName);
 
     await base.quitDriver();
 }

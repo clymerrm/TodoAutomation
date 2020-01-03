@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from part1_Selenium.python.exercise2.pages.base import BasePage
+from part1_Selenium.python.exercise3.pages.base import BasePage
 
 
 class TodoList(BasePage):
@@ -31,8 +31,8 @@ class TodoList(BasePage):
 
     def get_completed_tasks(self):
         # create a dict of all completed task names and their due dates
-        tasks = self.driver.find_elements(self.completed_tasks_names)
-        due_dates = self.driver.find_elements(self.completed_tasks_duedate)
+        tasks = self.driver.find_elements(*self.completed_tasks_names)
+        due_dates = self.driver.find_elements(*self.completed_tasks_duedate)
         tasks = [task.text.replace(' ', '') for task in tasks]
         due_dates = [date.text for date in due_dates]
         all_tasks = dict(zip(tasks, due_dates))
@@ -40,8 +40,8 @@ class TodoList(BasePage):
 
     def get_active_tasks(self):
         # create a dict of all active task names and their due dates
-        tasks = self.driver.find_elements(self.active_tasks_names)
-        due_dates = self.driver.find_elements(self.active_tasks_duedate)
+        tasks = self.driver.find_elements(*self.active_tasks_names)
+        due_dates = self.driver.find_elements(*self.active_tasks_duedate)
         tasks = [task.text.replace(' ', '') for task in tasks]
         due_dates = [date.text for date in due_dates]
         all_tasks = dict(zip(tasks, due_dates))
@@ -53,7 +53,7 @@ class TodoList(BasePage):
         tasks = self.get_all_tasks()
         try:
             return tasks[desired_name.replace(' ', '')]
-        except :
+        except:
             return False
 
     def mark_task_completed(self, desired_name):

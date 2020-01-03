@@ -16,14 +16,12 @@ BasePage.prototype.enterText = async function(desiredElement, desiredText) {
     await desiredElement.sendKeys(desiredText);
 };
 
-//
-//     quitDriver = async function () {
-//         await driver.quit();
-//     };
-//
-//     clickElement = async function (desiredElement) {
-//         await desiredElement.click()
-//     }
-// };
+BasePage.prototype.clickElement = async function (desiredElement) {
+    await desiredElement.click()
+};
+
+BasePage.prototype.quitDriver = async function () {
+    await driver.quit();
+};
 
 module.exports = BasePage;
