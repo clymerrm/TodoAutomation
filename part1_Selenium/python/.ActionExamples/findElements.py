@@ -16,24 +16,20 @@ driver.find_element_by_link_text("some link text")
 driver.find_element(By.LINK_TEXT, "some link text")
 
 # Partial Link Text
-driver.find_element_by_partial_link_text("some xpath")
-driver.find_element(By.PARTIAL_LINK_TEXT, "some xpath")
+driver.find_element_by_partial_link_text("some partial link text")
+driver.find_element(By.PARTIAL_LINK_TEXT, "some partial link text")
 
 # CSS Selector
-driver.find_element_by_css_selector("some xpath")
-driver.find_element(By.CSS_SELECTOR, "some xpath")
+driver.find_element_by_css_selector("some css")
+driver.find_element(By.CSS_SELECTOR, "some css")
 
 # Class Name
-driver.find_element_by_class_name("some xpath")
-driver.find_element(By.CLASS_NAME, "some xpath")
+driver.find_element_by_class_name("some class name")
+driver.find_element(By.CLASS_NAME, "some class name")
 
 # Name
-driver.find_element_by_name("some xpath")
-driver.find_element(By.NAME, "some xpath")
-
-# Tag Name
-driver.find_element_by_tag_name("some xpath")
-driver.find_element(By.TAG_NAME, "some xpath")
+driver.find_element_by_name("some name")
+driver.find_element(By.NAME, "some name")
 
 # Find all elements with matching selector
 driver.find_elements_by_xpath("some xpath")
