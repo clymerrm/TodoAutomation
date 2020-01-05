@@ -6,9 +6,9 @@
   "scripts": {
     "test": "mocha ./selenium/javascript/basicTest.js",
     "addTaskExample": "testcafe chrome part3_TestCafe/addTaskExample/addTask.js -e",
-    "basicTest": "testcafe chrome part3_TestCafe/basicTest/basicTest.spec.js -e",
-    "exercise1": "testcafe chrome part3_TestCafe/exercise1/exercise.spec.js -e",
-    "exercise1:solution": "testcafe chrome part3_TestCafe/exercise1/solution/solution.spec.js -e"
+    "basicTest": "testcafe chrome part3_TestCafe/basicTest/basicTest.js -e",
+    "exercise1": "testcafe chrome part3_TestCafe/exercise1/exercise.js -e",
+    "exercise1:solution": "testcafe chrome part3_TestCafe/exercise1/solution/solution.js -e"
   },
   "keywords": [],
   "author": "",
