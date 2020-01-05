@@ -32,9 +32,6 @@ export default class ToDo {
         const formatTaskName = taskName.toLowerCase().replace(/\s/g, '');
         await t
             .expect(Selector('[data-test-key="' + formatTaskName + 'item"]').withAttribute('data-test-status', 'completed').exists).ok();
-
-
-        // Selector('div').withAttribute('myAttr');
     }
 
     async deleteRow(interestName) {

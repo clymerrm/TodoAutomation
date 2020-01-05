@@ -1,21 +1,15 @@
 import {Selector, t} from "testcafe";
-import ToDo from "../exercise1/Pages/todo";
-import Common from "../exercise1/Pages/common";
 
-const todo = new ToDo();
-const common = new Common();
-const title = 'Codemash 2020 Todo List'
 const taskName = 'Testing Adding new task'
+const formatTaskName = taskName.toLowerCase().replace(/\s/g, '');
 
 fixture`Add Task Example`
     .page(`http://www.automation-todos.com/latest`)
 
-
-test.only("Adding Task", async t => {
-    await common.verifyBrowserTitle(title);
+test("Adding Task", async t => {
     await t
-        .typeText(todo.taskName, taskName);
-    await t
-        .click(todo.createTask)
-    await todo.validateTaskAdded(taskName);
+        .expect(Selector("title").innerText).eql('Codemash 2020 Todo List')
+        .typeText(Selector('[data-test-key="TaskNameInput"]'), 'Testing Adding new task')
+        .click(Selector('[data-test-key="CreateTaskButton"]'))
+        .expect(Selector('[data-test-key="' + formatTaskName + 'item"]').innerText).contains(taskName);
 });
