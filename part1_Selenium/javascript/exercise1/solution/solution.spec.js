@@ -20,7 +20,7 @@ async function main() {
 
     // UNCOMMENT ME TO CLEAR THE DATE FIELD
     let i = 0;
-    const tomorrow = moment().add(1, 'days').format("MM/DD/YYYY")
+    const tomorrow = moment().add(1, 'days').format("MM/DD/YYYY");
     const dateField = await driver.findElement(By.css('div[class*="datepicker__input-container"]>input'));
     const dateFieldLength = await dateField.getAttribute('value').length;
     while (i < dateFieldLength) {
