@@ -7,29 +7,33 @@ class HeaderPage extends BasePage {
         driver
     ) {
         super(webdriver, driver);
+        this.locators = {
+            titleText: By.css('[data-test-key=Header]'),
+            homeButton: By.css('[data-test-key=HomeLink]'),
+            scheduleButton: By.css('[data-test-key=ScheduleLink]'),
+            speakersButton: By.css('[data-test-key=SpeakersLink]')
+        }
+
     }
-    titleText = By.css('[data-test-key=Header]');
-    homeButton = By.css('[data-test-key=HomeLink]');
-    scheduleButton = By.css('[data-test-key=ScheduleLink]');
-    speakersButton = By.css('[data-test-key=SpeakersLink]');
+
 
     async headerVisible() {
-        const headerText = await this.driver.findElement(this.titleText);
+        const headerText = await this.driver.findElement(this.locators.titleText);
         return headerText.isDisplayed();
     }
 
     async clickButton(whichButton) {
         if (whichButton === 'schedule') {
-            await this.driver.findElement(this.scheduleButton).click();
+            await this.driver.findElement(this.locators.scheduleButton).click();
         } else if (whichButton === 'speakers') {
-            await this.driver.findElement(this.speakersButton).click();
+            await this.driver.findElement(this.locators.speakersButton).click();
         } else if (whichButton === 'home') {
-            await this.driver.findElement(this.homeButton).click();
+            await this.driver.findElement(this.locators.homeButton).click();
         }
     }
 
     async returnHeaderText() {
-        const headerText = await this.driver.findElement(this.titleText);
+        const headerText = await this.driver.findElement(this.locators.titleText);
         return headerText.getText();
     }
 }

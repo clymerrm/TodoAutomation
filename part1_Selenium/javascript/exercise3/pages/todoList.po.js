@@ -7,20 +7,22 @@ class TodoList extends BasePage {
         driver
     ) {
         super(webdriver, driver);
+        this.locators = {
+            allTasksNames: By.css('[data-test-key=TaskTitle]'),
+            allTasksDuedates: By.css('[data-test-key=DueDate]'),
+            allTasksStatuses: By.css('[data-test-status]'),
+            completedTasksNames: By.css('div[data-test-status=completed] [data-test-key=TaskTitle]'),
+            completedTasksDuedates: By.css('div[data-test-status=completed] [data-test-key=DueDate]'),
+            activeTasksNames: By.css('div[data-test-status=active] [data-test-key=TaskTitle]'),
+            activeTasksDuedates: By.css('div[data-test-status=active] [data-test-key=DueDate]')
+        }
     }
-    allTasksNames = By.css('[data-test-key=TaskTitle]');
-    allTasksDuedates = By.css('[data-test-key=DueDate]');
-    allTasksStatuses = By.css('[data-test-status]');
-    completedTasksNames = By.css('div[data-test-status=completed] [data-test-key=TaskTitle]');
-    completedTasksDuedates = By.css('div[data-test-status=completed] [data-test-key=DueDate]');
-    activeTasksNames = By.css('div[data-test-status=active] [data-test-key=TaskTitle]');
-    activeTasksDuedates = By.css('div[data-test-status=active] [data-test-key=DueDate]');
 
     async getAllTasks() {
         let allTasks = {};
-        const tasks = await this.driver.findElements(this.allTasksNames);
-        const dueDates = await this.driver.findElements(this.allTasksDuedates);
-        const attributes = await this.driver.findElements(this.allTasksStatuses);
+        const tasks = await this.driver.findElements(this.locators.allTasksNames);
+        const dueDates = await this.driver.findElements(this.locators.allTasksDuedates);
+        const attributes = await this.driver.findElements(this.locators.allTasksStatuses);
         for (let i = 0; i < tasks.length; i++) {
             let taskName = await tasks[i].getText();
             taskName = taskName.split(' ').join('').toLowerCase();
@@ -38,8 +40,8 @@ class TodoList extends BasePage {
 
     async getCompletedTasks() {
         const completedTasks = {};
-        const tasks = await this.driver.findElements(this.completedTasksNames);
-        const dueDates = await this.driver.findElements(this.completedTasksDuedates);
+        const tasks = await this.driver.findElements(this.locators.completedTasksNames);
+        const dueDates = await this.driver.findElements(this.locators.completedTasksDuedates);
         for (let i = 0; i < tasks.length; i++) {
             let taskName = await tasks[i].getText();
             taskName = taskName.split(' ').join('').toLowerCase();
@@ -51,8 +53,8 @@ class TodoList extends BasePage {
 
     async getActiveTasks() {
         const activeTasks = {};
-        const tasks = await this.driver.findElements(this.activeTasksNames);
-        const dueDates = await this.driver.findElements(this.activeTasksDuedates);
+        const tasks = await this.driver.findElements(this.locators.activeTasksNames);
+        const dueDates = await this.driver.findElements(this.locators.activeTasksDuedates);
         for (let i = 0; i < tasks.length; i++) {
             let taskName = await tasks[i].getText();
             taskName = taskName.split(' ').join('').toLowerCase();
